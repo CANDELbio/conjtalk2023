@@ -93,7 +93,11 @@ The boring infrastructure problem that bottlenecks biological research
 - Harmonization is a big problem in biology
 - Harmonization is harder than you might expect
 - Harmonization is where too much time gets spent instead of science
-Harmonization problems propagate and impact science quality
+- Harmonization problems propagate and impact science quality
+  
+---
+## Data harmonization
+
 - Errors creep in
 - People spend too much time hunting them down
 - People spend too much time hypothesizing about the wrong things and solving the wrong problems
@@ -103,8 +107,23 @@ Harmonization problems propagate and impact science quality
 
 ## Eroom's Law
 
-- data availability and productions from biological assays have exploded well past exponential growth- greater than Moore’s law
+![inline](img/eroom2.png)
+
+[^1]: https://johnmjennings.com/erooms-law-explaining-the-decline-in-drug-discovery/
+[^2]: Diagnosing the decline in pharmaceutical R&D efficiency https://www.nature.com/articles/nrd3681
+[^3]: Eroom's law https://www.science.org/content/blog-post/eroom-s-law
+
+---
+
+- 92% of genome sequenced in 2003
+- 'complete' in May 2021
+- Final gapless assembly in Jan 2022.
+
+---
+
 - The _cost_ of developing a new therapeutic still follows Moore’s law
+- cost of sequencing genome has gone from ~$3 billion to $600 in the last twenty years.
+- data availability and productions from biological assays have exploded well past exponential growth- greater than Moore’s law
 
 ---
 
@@ -170,6 +189,38 @@ Neither is acceptable
 - refer to talk linked in previous slide
 
 ---
+
+```clojure
+:samples [{:pret/input-file "processed/samples.txt"
+           :id              "Originating ID"
+           :subject         "Participant ID"
+           :timepoint       "VISIT"
+           :specimen        "Source Matcode"
+           :container       "BioInventory Group Name"}
+```
+
+^ Example that would be nested inside of a dataset, defining samples.
+
+---
+
+```clojure
+ {:name "CyTOF"
+  :technology       :assay.technology/mass-cytometry
+  :description      "CyTOF analysis"
+  :measurement-sets
+  [{:name             "Bendall"
+    :cell-populations
+    [{:pret/input-file  "processed/cell_populations.txt"
+      :pret/na          "NA"
+      :name             "name"
+      :positive-markers "positive.epitopes"
+      :cell-type        "cell.type"}
+     ...]
+```
+^ Example of an analysis type
+
+---
+
 
 ## Early CANDEL Data Model
 
