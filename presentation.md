@@ -171,7 +171,20 @@ Neither is acceptable
 
 ---
 
+## Early CANDEL Data Model
+
+- INSERT IMAGE of EARLY SCHEMA
+
+---
+
+## Recent CANDEL Data Model
+
+- INSERT IMAGE OF FINAL SCHEMA
+
+---
+
 ## The first tooling for access
+
 - R tools: datalogr, wick, luminance, glow
   - see talk linked on previous slide
 - PICI data science used the data in CANDEL primarily from R
@@ -179,40 +192,146 @@ Neither is acceptable
   - Clojure (both directly from Datomic and as query lib client)
   - Python, or whatever other data science language
 
+---
 
-(see our other talk)
-Give Mike’s work a big shoutout:
-Raw sugar upstream
-Enflame downstream
-Give Robb’s work a big shoutout:
-Integration and preparation of data on samples, etc. going into raw sugar and eventually CANDEL
-Mantis getting data out of images
-Research we accomplished
-Nature papers, etc.
-Go through all the data harmonized in PRINCE study
-Distill key findings from that
-Things that went well and things that didn’t
-Schema evolution happened and went well
-Data harmonization effort greatly reduced
-Most common pain point was: “I don’t know what this spec error means”
-Ok this is a broken record, yes we’re adults and responsible for massaging the error quality (if it makes sense for staffing and priorities) but more importantly:
+# Experience Report: Everything is Always Evolving
+
+---
+
+## CANDEL Ecosystem Grew from Here
+
+- RawSugar, upstream
+- WorkerBee, upstream
+- Mantis, upstream
+- Enflame, analysis enablement, dashboard
+
+---
+
+## RawSugar
+
+- Structure handling of raw files
+- Relating data as received by vendor with what goes into CANDEL
+
+---
+
+## Mantis
+
+Mantis supports a flow cytometry-like gating workflow for images. (Classifying cell phenotype from scatterplots of marker intensities)
+
+- aggregates features to the level of a cell population or cell
+- cell population or cell level features modeled in CANDEL's data model.
+
+---
+
+## Example data history: molecular data
+
+- sample manifest and raw assay files
+- recorded and stored with RawSugar, pushed into pipelines
+- processed data stored with RawSugar
+- workerbee used to prepare data for CANDEL and generate config snippet
+- prepared data and config committed to azure repo
+- then transacted into a CANDEL database
+
+---
+
+## Example data history
+
+- sample manifest and raw image files
+- recorded and stored with RawSugar
+- image files used in mantis to generate cell population data
+- cell population data added to CANDEL config
+- then transacted into a CANDEL database
+
+---
+
+## Research Accomplished: Highlights
+
+- Research we accomplished
+- Nature papers, etc.
+
+---
+
+## PRINCE Study: (Paper Link)
+
+- Go through all the data harmonized in PRINCE study
+
+---
+
+## PRINCE Study: distill key findings
+
+
+---
+
+# Things that went well and things that didn’t
+
+--- 
+
+## Designing around Schema Evolution was the Biggest Win
+
+If you take nothing else from this talk:
+
+- the schema constantly evolved
+- we handled its evolution without code changes by doing things in a data driven fashion
+  - pret infers its data compilation logic from schema and metamodel
+  - enflame, etc. also generated queries, etc. from inspection of schema
+  - only some code changes required R library modifications
+
+---
+
+## Data Harmonization Effort at PICI: Less Work, More Consistent
+
+- Data harmonization effort greatly reduced
+- Most common pain point was: “I don’t know what this spec error means
+- Good problem to have!
+  
 These were always real problems with the data! We kept them out of research!
-Long time to get acceptable solution for dataset evolution, versioning, etc.
-Just use multiple dbs stupid
-Transactional boundaries didn’t really matter
-Multiple versions of db could be stood up
-Big data doesn’t fit well in Datomic, even when it maps to Datoms
-Measurements and creation of measurement matrix/tensor class
-We did this in TSV for R and ease of import, arrow/parquet probably more efficient for tables
-For cloud systems, it probably makes more sense to go into zarr or something similar.
-This is all open sourced now
-Data harmonization problems aren’t unique to biology
-We expect data unification/harmonization needs across science could benefit from this toolkit
-We expect other categories of data science can benefit
-RIP PICI Informatics
-Parting gift to the scientific and software communities
-(Maybe, time allowing) Highlight of harmonization needed for Pattern, Noetik, etc
-Chance to highlight respective missions
-Talking about how much it makes sense for:
-One labs’ data generation process vs.
-A next generation data commons unifying diverse sources of data
+
+^ We know we could have done more to handle/clean up spec based errors.
+
+---
+
+# Rough Edges
+
+Fault here is ours alone, not Clojure or Datomic's.
+
+---
+
+## Handling datasets built against different schema versions
+
+It took a long time to get acceptable solution for dataset evolution, versioning, etc.
+
+---
+
+## Just use multiple Datomic dbs stupid
+
+- transactional boundaries didn’t really matter (entire dataset split across transactions in alrge batches)
+- transactions were never 'live'.
+- Multiple versions of db could be stood up
+  
+---
+
+## Big data and big-ish data
+
+- Big data doesn’t fit well in Datomic, even when it maps to Datoms
+- Measurements and creation of measurement matrix/tensor class
+- We did this in TSV for R and ease of import, arrow/parquet probably more efficient for tables
+- For cloud systems, it probably makes more sense to go into zarr or something similar.
+- If you want to do that, it would be a minimal code change.
+
+---
+
+## What we're open sourcing
+
+- This is all open sourced now at CANDELBio
+- Data harmonization problems aren’t unique to biology
+- We expect data unification/harmonization needs across science could benefit from this toolkit
+- We expect other categories of data science can benefit
+
+---
+
+# Where we are now
+
+Getting data at a scale that will support ML, data-driven insights from biology.
+
+- Noetik's mission
+- Pattern's mission
