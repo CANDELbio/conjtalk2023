@@ -1,4 +1,6 @@
-# Four years of Datomic powered ETL in anger with CANDEL
+# Four years of<br>Datomic<br>powered ETL in<br>anger with<br>CANDEL
+
+![original] (img/candelmasthead.jpeg)
 
 ---
 #  Speakers
@@ -287,6 +289,9 @@ Mantis supports a flow cytometry-like gating workflow for images. (Classifying c
 
 ![inline](img/enflamelayout.png)
 
+^ A tool that uses block "builder" to generate queries, enforcing structure
+^ Provides access to multiple DBs, runs query and shows result
+
 ---
 
 ## Enflame
@@ -294,6 +299,11 @@ Mantis supports a flow cytometry-like gating workflow for images. (Classifying c
 ![inline](img/enflameblockquery.png)
 
 ![inline](img/enflameQueryThroughSchema.png)
+
+*All* of these block relationships are dynamically inferred from the DB schema
+
+^ Block layout and query building and how the blocks represent the schema
+^ *NONE* of this is hard coded, it all comes from the schema
 
 ---
 
@@ -330,7 +340,6 @@ Mantis supports a flow cytometry-like gating workflow for images. (Classifying c
 
 ## PRINCE Study:
 
-[.column]
 - Phase 2 Trial of chemo + nivolumab and/or sotigalimab
 - Multi-omic profiling:
   - Immunophenotyping by CyTOF
@@ -339,18 +348,21 @@ Mantis supports a flow cytometry-like gating workflow for images. (Classifying c
   - Whole-exome and transcriptome sequencing
   - Multiplex imaging
 
-- https://www.nature.com/articles/s41591-022-01829-9
+- [Nature Medicine, 2022] (https://www.nature.com/articles/s41591-022-01829-9)
 
-[.column]
-![inline](img/princeImage1.jpeg)
-
-![inline](img/princeNMCitation.png) 
-
+![right fit] (img/princeImage1.jpeg)
 
 ---
 
 ## PRINCE Study: distill key findings
 
+![right](img/princevenn.png)
+
+Multi-dimensional clinical & genomic profiling identifies potential biomarkers that correlate with response to treatment.
+
+This high-dimensional approach will identify new targets for testing and for therapeutic intervention.
+
+^ Pancreatic cancer is notoriously hard to treat and we need new and abnundant markers and targets to improve outcomes. This can only be done with true combinatorial multi-omic approaches
 
 ---
 
