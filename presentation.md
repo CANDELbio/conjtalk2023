@@ -328,13 +328,16 @@ Mantis supports a flow cytometry-like gating workflow for images. (Classifying c
 
 ---
 
-## Research Accomplished: Highlights
+## CANDEL-powered Research: Highlights
 
-- Research we accomplished
-- Nature papers, etc.
-- Morrison 1 
-- Amadeus (in preparation) 
-- McGraw (in preparation)
+- [Prince - Phase 2 combination trial in pancreatic cancer](https://www.nature.com/articles/s41591-022-01829-9)
+- [Morrison 1 - Effect of prior treatment(s) on IO therapy](https://doi.org/10.1016/j.ccell.2023.03.010)
+- [Radiohead - Relationship between adverse events and IO therapy](https://jitc.bmj.com/content/10/Suppl_2/A1304)
+- [Revolution - Novel IO combination trial for pancreatic cancer](https://jitc.bmj.com/content/10/Suppl_2/A687)
+- [Morisson 2 - Multiplex imaging to uncover features of the TME] (https://jitc.bmj.com/content/10/Suppl_2/A1342)
+- [Porter - Biomarkers of response in prostate cancer](https://jitc.bmj.com/content/10/Suppl_2/A585)
+- Amadeus - Can gut bacteria help destroy tumors? (in preparation) 
+- McGraw - Biomarkers for checkpoint response in hot vs. cold tumors (in preparation)
 
 ---
 
@@ -354,7 +357,7 @@ Mantis supports a flow cytometry-like gating workflow for images. (Classifying c
 
 ---
 
-## PRINCE Study: distill key findings
+## PRINCE Study: Key Findings
 
 ![right](img/princevenn.png)
 
