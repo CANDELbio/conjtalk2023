@@ -25,13 +25,17 @@ CANDEL was an opportunity for us to bring what we learned in software back home.
 
 We both spent time on the Datomic product team at Cognitect prior to the project.
 
+![inline](img/coglogo.png)![inline](img/datomiclogo.png)
+
+
 We sat at both sides of the table: starting out as the primary consultants from Cognitect, then as both end users an product owners at PICI.
 
 ---
 ## Parker Institute for Cancer Immunotherapy
 
-- Parker as in Sean
-- Mission to turn all cancers into curable diseases
+![inline](img/picilogo.png)
+
+- Mission: to accelerate the development of breakthrough immune therapies to turn all cancers into curable diseases.
 
 ---
 
@@ -230,7 +234,7 @@ Neither is acceptable
 
 ## Recent CANDEL Data Model
 
-- INSERT IMAGE OF FINAL SCHEMA
+![inline](img/schema.1.2.png)
 
 ---
 
@@ -256,6 +260,10 @@ Neither is acceptable
 - Mantis, upstream
 - Enflame, analysis enablement, dashboard
 
+![inline](img/candeloverview.png)
+
+### [CANDELbio](https://candelbio.github.io/candel-bio-website/)
+
 ---
 
 ## RawSugar
@@ -271,6 +279,14 @@ Mantis supports a flow cytometry-like gating workflow for images. (Classifying c
 
 - aggregates features to the level of a cell population or cell
 - cell population or cell level features modeled in CANDEL's data model.
+
+---
+
+## Enflame
+
+- visual query builder
+
+![inline](img/enflamelayout.png)
 
 ---
 
