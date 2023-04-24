@@ -283,10 +283,17 @@ Mantis supports a flow cytometry-like gating workflow for images. (Classifying c
 ---
 
 ## Enflame
-
-- visual query builder
+### Visual Query
 
 ![inline](img/enflamelayout.png)
+
+---
+
+## Enflame
+
+![inline](img/enflameblockquery.png)
+
+![inline](img/enflameQueryThroughSchema.png)
 
 ---
 
@@ -315,12 +322,30 @@ Mantis supports a flow cytometry-like gating workflow for images. (Classifying c
 
 - Research we accomplished
 - Nature papers, etc.
+- Morrison 1 
+- Amadeus (in preparation) 
+- McGraw (in preparation)
 
 ---
 
-## PRINCE Study: (Paper Link)
+## PRINCE Study:
 
-- Go through all the data harmonized in PRINCE study
+[.column]
+- Phase 2 Trial of chemo + nivolumab and/or sotigalimab
+- Multi-omic profiling:
+  - Immunophenotyping by CyTOF
+  - High-parameter flow cytometry of T lymphocytes
+  - Serum proteomics profiling
+  - Whole-exome and transcriptome sequencing
+  - Multiplex imaging
+
+- https://www.nature.com/articles/s41591-022-01829-9
+
+[.column]
+![inline](img/princeImage1.jpeg)
+
+![inline](img/princeNMCitation.png) 
+
 
 ---
 
