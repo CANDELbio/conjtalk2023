@@ -6,21 +6,51 @@ theme: Simple, 1
 ---
 #  Speakers
 
-- Marshall Thompson, PhD
-- Benjamin Kamphaus, PhD
+[.column]
+
+![left inline] (img/mtheadshot.png)
+
+Marshall Thompson, PhD
+
+[.column]
+
+![left inline] (img/bkheadshot.webp)
+
+Benjamin Kamphaus, PhD
+
+---
+# Speakers
+
+We were both trained as scientists 
+  - Ben in Earth Science
+  - Marshall in Genetics and Genomics
+
+We both ended up in the software industry.  
+
+PICI & CANDEL were a first return to science for both of us.
+
+CANDEL was an opportunity for us to bring what we learned in software back home.
+
+---
+
+![inline center](img/picilogo.jpeg)
+
+Mission: to accelerate the development of breakthrough immune therapies to turn all cancers into curable diseases.
 
 ---
 
 ## The CANDEL Project: History
 
-*Can*cer *D*ata and *E*vidence *L*ibrary
+Federico & Lacey Came to Cognitect (through a Datomic evaluation)
 
----
+![inline](img/federicoheadshot.jpeg) ![inline](img/laceyheadshot.jpeg)
 
-We were both trained as scientists (Ben in Earth Science, Marshall in Genetics and Genomics). We both ended up in the software industry.  PICI & CANDEL were a first return to science for both of us.
+[.text: #000000, alignment(center)]
+**Can**cer **D**ata and **E**vidence **L**ibrary
 
+^ Hundreds of scientific papers are generated each month – all available in the public domain. So, what if there was a way to connect the dots across all the studies? A single system that can not only “see” the emerging and existing data, but perform advanced analysis so that critical scientific questions can be answered with up-to-date, accurate information?
 
-CANDEL was an opportunity for us to bring what we learned in software back home.
+^We couldn’t find a platform like this. So we built one ourselves.
 
 ---
 
@@ -32,15 +62,7 @@ We both spent time on the Datomic product team at Cognitect prior to the project
 
 ![inline](img/coglogo.png)![inline](img/datomiclogo.png)
 
-
 We sat at both sides of the table: starting out as the primary consultants from Cognitect, then as both end users and product owners at PICI.
-
----
-## Parker Institute for Cancer Immunotherapy
-
-![inline](img/picilogo.png)
-
-- Mission: to accelerate the development of breakthrough immune therapies to turn all cancers into curable diseases.
 
 ---
 
