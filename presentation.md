@@ -1,5 +1,6 @@
+theme: Simple, 1
 # Four years of<br>Datomic<br>powered ETL in<br>anger with<br>CANDEL
-
+[.header: #FFFFFF, alignment(left)]
 ![original] (img/candelmasthead.jpeg)
 
 ---
@@ -11,6 +12,8 @@
 ---
 
 ## The CANDEL Project: History
+
+*Can*cer *D*ata and *E*vidence *L*ibrary
 
 ---
 
@@ -30,7 +33,7 @@ We both spent time on the Datomic product team at Cognitect prior to the project
 ![inline](img/coglogo.png)![inline](img/datomiclogo.png)
 
 
-We sat at both sides of the table: starting out as the primary consultants from Cognitect, then as both end users an product owners at PICI.
+We sat at both sides of the table: starting out as the primary consultants from Cognitect, then as both end users and product owners at PICI.
 
 ---
 ## Parker Institute for Cancer Immunotherapy
