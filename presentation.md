@@ -14,7 +14,7 @@ Marshall Thompson, PhD
 
 [.column]
 
-![left inline] (img/bkheadshot.webp)
+![left inline] (img/bkheadshot.jpeg)
 
 Benjamin Kamphaus, PhD
 
