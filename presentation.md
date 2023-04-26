@@ -390,6 +390,12 @@ Mantis supports a flow cytometry-like gating workflow for images. (Classifying c
 
 ---
 
+## Data in CANDEL
+
+![inline](img/datasummary.png)
+
+---
+
 # Things that went well and things that didn’t
 
 --- 
