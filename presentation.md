@@ -295,17 +295,53 @@ Neither is acceptable
 
 ## RawSugar
 
-- Structure handling of raw files
+![inline](img/rawsugarprojects.png)
+
+- Structured handling of raw files
+- Built on Datomic, includes an immutable history of all file updates and changes
+
+---
+
+## RawSugar
+
+![inline](img/rawsugarSS1.png) ![inline](img/rawsugarmatching.png)
+
 - Relating data as received by vendor with what goes into CANDEL
+- Fuzzy file matching & metadata management
+
+---
+
+## RawSugar
+
+![inline](img/rawsugardashboard.png)
+
+- Organization and management of data to ensure completeness
 
 ---
 
 ## Mantis
 
-Mantis supports a flow cytometry-like gating workflow for images. (Classifying cell phenotype from scatterplots of marker intensities)
+Mantis is a viewing and analysis tool for multi-channel microscopy imaging
 
-- aggregates features to the level of a cell population or cell
-- cell population or cell level features modeled in CANDEL's data model.
+![inline](img/mantis1.png)
+
+---
+
+## Mantis
+
+![inline autoplay](img/population_on_graph_640.mp4)
+
+- Scatterplot of marker intensities
+- Region and cell population selection and filtering
+
+---
+
+## Mantis
+
+![inline](img/mantisplot.png)
+
+- Aggregates features to the level of a cell population or cell
+- Cell population or cell level features modeled in CANDEL's data model
 
 ---
 
@@ -332,19 +368,29 @@ Mantis supports a flow cytometry-like gating workflow for images. (Classifying c
 
 ---
 
-## Example data history
-
-- walkthrough data from vendor
-- excel
-- rawsugar
-- workerbee -- some cases data goes back to rawsugar
-- pret 
-- into candel
-- analyze via wick/luminance
+## Using the CANDEL System
 
 ---
 
+## Example data history - before CANDEL
+
+![inline](img/oldapproach.png)
+
+---
+
+## Example data history - with CANDEL
+
+![inline](img/candelapproach.png)
+
+CANDEL provides a unified set of processes, workflows, and validations from data ingestion to analysis
+
+---
+
+## The CANDEL Ecosystem
+
 ![inline](img/candeldataflow.png)
+
+This unified set of processes supports a growing set of assay types and downstream analysis consumers
 
 ---
 
@@ -469,3 +515,8 @@ Getting data at a scale that will support ML, data-driven insights from biology.
 
 - Noetik's mission
 - RCRF's mission
+
+---
+
+## Thanks
+
