@@ -332,24 +332,15 @@ Mantis supports a flow cytometry-like gating workflow for images. (Classifying c
 
 ---
 
-## Example data history: molecular data
-
-- sample manifest and raw assay files
-- recorded and stored with RawSugar, pushed into pipelines
-- processed data stored with RawSugar
-- workerbee used to prepare data for CANDEL and generate config snippet
-- prepared data and config committed to azure repo
-- then transacted into a CANDEL database
-
----
-
 ## Example data history
 
-- sample manifest and raw image files
-- recorded and stored with RawSugar
-- image files used in mantis to generate cell population data
-- cell population data added to CANDEL config
-- then transacted into a CANDEL database
+- walkthrough data from vendor
+- excel
+- rawsugar
+- workerbee -- some cases data goes back to rawsugar
+- pret 
+- into candel
+- analyze via wick/luminance
 
 ---
 
@@ -358,6 +349,7 @@ Mantis supports a flow cytometry-like gating workflow for images. (Classifying c
 ---
 
 ## CANDEL-powered Research: Highlights
+[.autoscale: true]
 
 - [Prince - Phase 2 combination trial in pancreatic cancer](https://www.nature.com/articles/s41591-022-01829-9)
 - [Morrison 1 - Effect of prior treatment(s) on IO therapy](https://doi.org/10.1016/j.ccell.2023.03.010)
@@ -470,4 +462,4 @@ It took a long time to get acceptable solution for dataset evolution, versioning
 Getting data at a scale that will support ML, data-driven insights from biology.
 
 - Noetik's mission
-- Pattern's mission
+- RCRF's mission
