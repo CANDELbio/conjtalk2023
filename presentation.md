@@ -8,15 +8,11 @@ theme: Simple, 1
 
 [.column]
 
-![left inline] (img/mtheadshot.png)
-
-Marshall Thompson, PhD
+![center inline] (img/mtheadshot.png)
 
 [.column]
 
-![left inline] (img/bkheadshot.jpeg)
-
-Benjamin Kamphaus, PhD
+![center inline] (img/bkheadshot.png)
 
 ---
 # Speakers
@@ -66,28 +62,38 @@ We sat at both sides of the table: starting out as the primary consultants from 
 
 ---
 
+## People
+
+[.text: #000000, alignment(center)]
+
+[.column]
+
+![inline](img/headshots1.png) 
+
+Project Kick Off
+
+[.column]
+
+![inline](img/headshots2.png)
+
+Dev Team 
+
+[.column]
+
+![inline](img/headshots3.png)
+
+Bioinformatics Users
+
+---
+
 ## CANDEL Project Timeline
+[.autoscale: true]
 
 - Fall 2018: Project starts between PICI & Cognitect
 - Jan 2019: First iteration of CANDEL is up and in use
 - Spring 2019: First CANDEL integrations with R
 - Summer 2019: Mantis 1.0
 - Spring 2019: First versions of RawSugar & Enflame
-
----
-
-## People
-
-Rich, Stu, Ben, Marshall, Federico, Lacey
-
-Mike T, Robin, Rob, George, ...
-
-Informatics Data Scientists: (Chris S, Danny, Nick, Tim, Shannon, Anastasia, Mike S, Kwame, Annie, Jessica, Wesley, Chris L)
-
----
-
-## CANDEL Project Timeline
-
 - Fall 2020: Ben joins PICI full time
 - Summer 2021: Marshall joins PICI full time
 - Summer 2022: More than (50?) Datasets in CANDEL
@@ -95,14 +101,6 @@ Informatics Data Scientists: (Chris S, Danny, Nick, Tim, Shannon, Anastasia, Mik
   
 ---
   
-## CANDEL Study and Trial Timeline
-
-- some
-- bullets
-- here
-
----
-
 # Why CANDEL?
 
 ---
@@ -280,16 +278,18 @@ Neither is acceptable
 
 ---
 
-## CANDEL Ecosystem Grew from Here
+## [CANDEL](https://candelbio.github.io/candel-bio-website/) Ecosystem Grew from Here
+
+[.column]
 
 - RawSugar, upstream
 - WorkerBee, upstream
 - Mantis, upstream
 - Enflame, analysis enablement, dashboard
 
-![inline](img/candeloverview.png)
+[.column]
 
-### [CANDELbio](https://candelbio.github.io/candel-bio-website/)
+![inline](img/candeloverview.png)
 
 ---
 
@@ -353,6 +353,10 @@ Mantis supports a flow cytometry-like gating workflow for images. (Classifying c
 
 ---
 
+![inline](img/candeldataflow.png)
+
+---
+
 ## CANDEL-powered Research: Highlights
 
 - [Prince - Phase 2 combination trial in pancreatic cancer](https://www.nature.com/articles/s41591-022-01829-9)
@@ -384,11 +388,11 @@ Mantis supports a flow cytometry-like gating workflow for images. (Classifying c
 
 ## PRINCE Study: Key Findings
 
-![right](img/princevenn.png)
+![inline original fit](img/princeFlowchart.png)
 
-Multi-dimensional clinical & genomic profiling identifies potential biomarkers that correlate with response to treatment.
+^ Multi-dimensional clinical & genomic profiling identifies potential biomarkers that correlate with response to treatment.
 
-This high-dimensional approach will identify new targets for testing and for therapeutic intervention.
+^ This high-dimensional approach will identify new targets for testing and for therapeutic intervention.
 
 ^ Pancreatic cancer is notoriously hard to treat and we need new and abnundant markers and targets to improve outcomes. This can only be done with true combinatorial multi-omic approaches
 
