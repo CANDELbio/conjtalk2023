@@ -96,7 +96,7 @@ Bioinformatics Users
 - Spring 2019: First versions of RawSugar & Enflame
 - Fall 2020: Ben joins PICI full time
 - Summer 2021: Marshall joins PICI full time
-- Summer 2022: More than (50?) Datasets in CANDEL
+- Summer 2022: More than 50 Datasets in CANDEL
 - Spring 2023: CANDEL Open Sourced
   
 ---
@@ -484,19 +484,19 @@ Mantis is a viewing and analysis tool for multi-channel microscopy imaging
 
 ## Mantis
 
-![inline autoplay](img/population_on_graph_640.mp4)
+![inline](img/mantisplot.png)
 
-- Scatterplot of marker intensities
-- Region and cell population selection and filtering
+- Aggregates features to the level of a cell population or cell
+- Cell population or cell level features modeled in CANDEL's data model
 
 ---
 
 ## Mantis
 
-![inline](img/mantisplot.png)
+![inline autoplay](img/population_on_graph_640.mp4)
 
-- Aggregates features to the level of a cell population or cell
-- Cell population or cell level features modeled in CANDEL's data model
+- Scatterplot of marker intensities
+- Region and cell population selection and filtering
 
 ---
 
