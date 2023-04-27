@@ -598,15 +598,23 @@ This unified set of processes supports a growing set of assay types and downstre
 
 --- 
 
-## Designing around Schema Evolution was the Biggest Win
+## Biggest Win: Designing Around Schema Evolution
 
 If you take nothing else from this talk:
 
-- the schema constantly evolved
-- we handled its evolution without code changes by doing things in a data driven fashion
-  - pret infers its data compilation logic from schema and metamodel
-  - enflame, etc. also generated queries, etc. from inspection of schema
-  - only some code changes required R library modifications
+- The schema constantly evolved
+- We handled its evolution without code changes by doing things in a data driven fashion
+  - Pret infers its data compilation logic from schema and metamodel
+  - Enflame, etc. also generates queries, etc. from inspection of schema
+  - Only some schema changes required R library code modifications
+
+^ we changed names of entities
+^ we added new reified edges -- indirection in linker entities
+^ we changed ontologies/controlled vocabularies
+^ we changed entity to entity relations:
+^ example of protein that had a cardinality reference one relationship to gene
+^ but some proteins are produced by multiple homologous genes and it's not possible
+^ to tell from the structure or assay which gene was translated to produce it.
 
 ---
 
@@ -619,6 +627,9 @@ If you take nothing else from this talk:
 These were always real problems with the data! We kept them out of research!
 
 ^ We know we could have done more to handle/clean up spec based errors.
+^ But also, we often needed to have conversations around some of these, because the cleaning steps
+^ or steps necessary eg to find where IDs got mangled, etc. are non-trivial and might require
+^ other team members.
 
 ---
 
@@ -645,10 +656,61 @@ It took a long time to get acceptable solution for dataset evolution, versioning
 ## Big data and big-ish data
 
 - Big data doesn’t fit well in Datomic, even when it maps to Datoms
-- Measurements and creation of measurement matrix/tensor class
+- Single cell and image derived features forced data out of Datomic.
+  - Solution solved some pain we'd been experiencing with larger measurement sets.
+
+---
+
+## Measurement Matrix
+
+```clojure
+:measurement-matrices
+[{:name "screening-rna-seq"
+  :measurement-type :measurement/read-count
+  :pret.matrix/input-file "dense-rnaseq.tsv"
+  :pret.matrix/format :pret.matrix.format/dense
+  :pret.matrix/column-attribute :measurement-matrix/gene-products
+  :pret.matrix/indexed-by {"sample.id" :measurement-matrix/samples}}
+ {:name "single cell counts"
+  :measurement-type :measurement/read-count
+  :pret.matrix/constants {:measurement-matrix/samples "SYNTH-SC-DATA-01"}
+  :pret.matrix/input-file "short-processed-counts.tsv"
+  :pret.matrix/format :pret.matrix.format/sparse
+  :pret.matrix/indexed-by {"barcode" :measurement-matrix/single-cells
+                           "hugo" :measurement-matrix/gene-products}}]}]}]
+
+```
+
+---
+
+References to entities in Datomics (as unordered set), numeric values not.
+
+![inline](img/Matrix%20Example.png)
+
+^ So for these cases you would need to go out of Datomic to get the file from S3, but in R or Python, etc.
+^ you can join on these entities. Pret processes them to ensure the IDs match and to run all entries against the
+^ spec (so subject to same quality checks as individual measurements.)
+^ there are schemas that probably make sense that only ever use measurement matrices for data consisting primarily of numeric values.
+
+---
+
+## Measurement Matrix
+
 - We did this in TSV for R and ease of import, arrow/parquet probably more efficient for tables
 - For cloud systems, it probably makes more sense to go into zarr or something similar.
 - If you want to do that, it would be a minimal code change.
+
+---
+
+[.column]
+
+![center inline](img/zarr.png)
+
+- Other formats could be built in for matrix types, eg. Parquet or Zarr ecosystems.
+
+[.column]
+
+![center inline](img/parquet.gif)
 
 ---
 
@@ -657,7 +719,7 @@ It took a long time to get acceptable solution for dataset evolution, versioning
 - This is all open sourced now at CANDELBio
 - Data harmonization problems aren’t unique to biology
 - We expect data unification/harmonization needs across science could benefit from this toolkit
-- We expect other categories of data science can benefit
+- We expect data science in general or even other ETL workflows can benefit
 
 ---
 
