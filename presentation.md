@@ -295,6 +295,28 @@ Neither is acceptable
 ---
 
 ```clojure
+:samples [{:pret/input-file "processed/samples.txt"
+           :id              "Originating ID"
+           :subject         "Participant ID"
+           :timepoint       "VISIT"
+           :specimen        "Source Matcode"
+           :container       "BioInventory Group Name"}
+:subjects {:pret/input-file "processed/subjects.txt"
+           :id              "USUBJID"
+           :race            "RACE"
+           :ethnicity       "ETHNIC"
+           :therapies       
+           {:pret/input-file   "processed/therapies.txt"
+            :treatment-regimen "TRTACD"
+            :order             "order"
+            :pret/reverse      {:pret/rev-variable "USUBJID"
+                                :pret/rev-attr     :subject/therapies}}}
+
+```
+
+---
+
+```clojure
  {:name "CyTOF"
   :technology       :assay.technology/mass-cytometry
   :description      "CyTOF analysis"
@@ -324,6 +346,7 @@ Neither is acceptable
 
 ---
 
+[.code-highlight: 8, 14, 23, 29]
 ```clojure
 {:name             "CyTOF"
  :technology       :assay.technology/mass-cytometry
@@ -361,6 +384,30 @@ Neither is acceptable
                                          "normalized.measurement"    :measurement/percent-of-leukocytes}}]}]}]
 ```
 ---
+
+```clojure
+{:kind/name        :assay
+ :kind/attr        :assay/name
+ :kind/context-id  :assay/name
+ :kind/need-uid    :assay/uid
+ :kind/parent      :dataset}
+{:kind/name        :measurement-set
+ :kind/attr        :measurement-set/name
+ :kind/context-id  :measurement-set/name
+ :kind/parent      :assay
+ :kind/need-uid    :measurement-set/uid}
+{:kind/name        :cell-population
+ :kind/attr        :cell-population/name
+ :kind/context-id  :cell-population/name
+ :kind/parent      :measurement-set
+ :kind/need-uid    :cell-population/uid}
+```
+
+^ And we did all of this with the metamodel. Which was explicitly modeled in Datomic. Pret uses the information
+^ -- unique ID and context components, parent/child relations, etc. -- to drive the ID resolution.
+
+---
+
 
 ## Recent CANDEL Data Model
 
