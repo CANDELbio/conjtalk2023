@@ -728,7 +728,7 @@ References to entities in Datomics (as unordered set), numeric values not.
 
 ## What we're open sourcing
 
-- This is all open sourced now at CANDELBio
+- This is all open sourced now at [CANDELBio](https://github.com/CANDELBio)
 - Data harmonization problems aren’t unique to biology
 - We expect data unification/harmonization needs across science could benefit from this toolkit
 - We expect data science in general or even other ETL workflows can benefit
@@ -747,7 +747,13 @@ Getting data at a scale that will support ML, data-driven insights from biology.
 
 [.column]
 
-Noetik's mission
+![fit inline](img/noetik-hint-logo.png)
+
+[Noetik's mission](https://www.noetik.ai/)
+
+
+- Building large scale datasets from human data that are fit-for-purpose for deep learning.
+- Tight feedback loop between comp bio, machine learning, and the lab process.
 
 [.column]
 
@@ -759,3 +765,6 @@ RCRF is dedicated to curing rare cancers through strategic investments and innov
 
 ## Thanks
 
+[https://github.com/CANDELBio](https://github.com/CANDELBio)
+
+![inline](img/qrcode_github.com.png)
