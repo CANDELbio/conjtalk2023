@@ -271,11 +271,14 @@ Neither is acceptable
 
 ## The first entry in CANDEL: Pret
 
-[Pret](https://github.com/CANDELbio/pret): automated ETL at the heart of CANDEL
+[Pret](https://github.com/CANDELbio/pret): automated ETL at the heart of CANDEL:
+
 - Turns tables to datoms
-- Rules for doing so generated from schema
-- data driven generation and inference from schema all the way down
-- refer to talk linked in previous slide
+- Derives rules for doing so inspecting the schema in Datomic
+- Additional layer of schema annotations — the metamodel — assist with this.
+- Specs ensure granular data accuracy as well as cross-dataset referential integrity.
+
+^ Refer to talks in previous slide for more information.
 
 ---
 
