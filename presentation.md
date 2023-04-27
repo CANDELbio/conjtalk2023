@@ -648,12 +648,21 @@ It took a long time to get acceptable solution for dataset evolution, versioning
 
 ---
 
+![inline](img/CANDELsingledb.png)
+
+---
+
 ## Just use multiple Datomic dbs stupid
 
 - transactional boundaries didn’t really matter (entire dataset split across transactions in alrge batches)
 - transactions were never 'live'.
 - Multiple versions of db could be stood up
   
+---
+
+
+![inline](img/CANDELmultidb.png)
+
 ---
 
 ## Big data and big-ish data
