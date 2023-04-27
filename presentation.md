@@ -115,6 +115,11 @@ Bioinformatics Users
 
 The boring infrastructure problem that bottlenecks biological research
 
+^ PICI finding itself in a situation lots of data science groups, esp bio ones, do
+^ data split across tons of different dbs and storages
+^ sometimes that's just excel or google sheet a vendor shares
+^ issues with reproducibility, mistakes propagating, etc.
+
 ---
 
 ## Data Harmonization
@@ -123,6 +128,9 @@ The boring infrastructure problem that bottlenecks biological research
 - Harmonization is harder than you might expect
 - Harmonization is where too much time gets spent instead of science
 - Harmonization problems propagate and impact science quality
+
+^To clarify real quick, we're talking MOSTLY about the portion of harmonization that means getting
+data into a common representation (not focused on empirical, numerical calibration, correction, etc.)
   
 ---
 ## Data harmonization
@@ -142,17 +150,20 @@ The boring infrastructure problem that bottlenecks biological research
 [^2]: Diagnosing the decline in pharmaceutical R&D efficiency https://www.nature.com/articles/nrd3681
 [^3]: Eroom's law https://www.science.org/content/blog-post/eroom-s-law
 
+^ Now, I'm going to bring this up in the context of pharma/biotech etc. at large.
+^ System wide pattern of issues, some regulatory, some with business practices, some with how
+^ data is handled, etc., that have resulted in the time+money investment of developing a new drug
+^ (or more generally therapeutic) 
+
 ---
 
-- 92% of genome sequenced in 2003
-- 'complete' in May 2021
-- Final gapless assembly in Jan 2022.
-
----
-
+- 92% of genome sequenced in 2003 ('mission accomplished' point)
 - The _cost_ of developing a new therapeutic still follows Moore’s law
 - cost of sequencing genome has gone from ~$3 billion to $600 in the last twenty years.
 - data availability and productions from biological assays have exploded well past exponential growth- greater than Moore’s law
+
+^ If you look at the reduction in cost and ability to capture data in bio, by comparison, we're
+^ looking 
 
 ---
 
@@ -165,13 +176,9 @@ The challenge of handling biological data is not the sole cause of this, but dat
   
 Neither is acceptable
 
----
-
-## PICI's Unique Data Integration & Harmonization Needs
-
-- Partner sites across academia and industry
-- New and experimental assays
-- Split across projects, trials, etc
+^ if we use a crude analogy and say finding a drug is a needle in a haystack, what this means is
+^ with all the data we have, we're mostly just adding more hay to the pile.
+^ Can we do better?
 
 ---
 
@@ -186,16 +193,69 @@ Neither is acceptable
 
 ---
 
+## PICI's Unique Data Integration & Harmonization Needs
+
+- Partner sites across academia and industry
+- New and experimental assays
+- Team effort split across multiple projects, trials, etc
+  
+^ At PICI, the problem of disorganized data was magnified. We've got partner data from many
+^ different sources, some of them academic, or groups piloting a technology with no real
+^ informatics support. 
+
+---
+
 ## The Shape of Biological Data
 
 - Deeply relational, deeply nested
 - Sparse, lots of holes
 - Large and getting larger
 
+---
 
-^ A patient has tissue has cell populations has cells have molecules
+![inline](img/OMOP-model.png)
+
+
+^ Clinical Example - OMOP
+^ An effort to produce a unified data model for clinical observations, basically.
+^ This is one subset of what we needed to be able to model in CANDEL 
+^ 37 tables, 394 fields
+^ you have a lot of relation entities
+
+---
+
+## Omics data at PICI
+
+[.column]
+- Bulk
+- Tissue specific
+- Image derived
+- Cell populations
+- Single Cell
+
+[.column]
+- Measured by a particular assay, eg
+- RNASeq
+- WES
+- Metabolic Panel
+- Flow
+
+[.column]
+- Measurement targets such as
+  - Genes
+  - Proteins
+  - Mutations
+  - Non-trivial relations for all the above
+
+
+
+^ A patient has tissue has cell populations that have cells have molecules
+^ We might physically isolate particular granularities or do it with anayltical techniques, or hybrids (eg. flow gating)
 ^ We might associate anything below anywhere else in the hierarchy.
-^ e.g., proteins or DNA just associated with the patient
+^ e.g., proteins or RNA or DNA just associated with the patient
+^ All of this, clinical or moleular, is sparse
+^ At this point maybe you're thinking through all the linker tables you'd have to build and nullable fields
+^ etc. and using something with a triple store heritage like Datomic is starting to make a lot of sense.
 
 ---
 
@@ -229,6 +289,8 @@ Neither is acceptable
 ```
 
 ^ Example that would be nested inside of a dataset, defining samples.
+^ At the core of Pret are these maps which define a way to turn tables, TSV by
+^ our convention, into entity maps (which have a deterministic mapping into datoms)
 
 ---
 
@@ -246,15 +308,58 @@ Neither is acceptable
       :cell-type        "cell.type"}
      ...]
 ```
-^ Example of an analysis type
+^ This is an example of an analysis type, here showing cell populations for an assay
 
 ---
 
+![inline](img/CANDEL%20Example.png)
 
-## Early CANDEL Data Model
+---
 
-- INSERT IMAGE of EARLY SCHEMA
+![inline](img/Measurement%20Call%20Out.png)
 
+---
+
+![inline](img/Scoped%20Resolution.png)
+
+---
+
+```clojure
+{:name             "CyTOF"
+ :technology       :assay.technology/mass-cytometry
+ :description      "CyTOF analysis performed at Primity Bio"
+ :measurement-sets
+ [{:name             "Bendall"
+    :cell-populations [{:pret/input-file  "processed/cell_populations_Bendall.txt"
+                        :pret/na          "NA"
+                        :name             "name"
+                        :positive-markers "positive.epitopes"
+                        :cell-type        "cell.type"}]
+    :measurements     [{:pret/input-file "processed/cytof_measurements_Bendall.txt"
+                        :pret/na         "NA"
+                        :sample          "sample"
+                        :cell-population "uniquePopulationName"
+                        :pret/variable   "variable"
+                        :pret/value      "value"
+                        :pret/variables  {"eventCount"                :measurement/cell-count
+                                          "normalization.measurement" :measurement/leukocyte-count
+                                          "normalized.measurement"    :measurement/percent-of-leukocytes}}]}
+  {:name             "Spitzer"
+   :cell-populations [{:pret/input-file  "processed/cell_populations_Spitzer.txt"
+                       :pret/na          "NA"
+                       :name             "name"
+                       :positive-markers "positive.epitopes"
+                       :cell-type        "cell.type"}]
+   :measurements     [{:pret/input-file "processed/cytof_measurements_Spitzer.txt"
+                       :pret/na         "NA"
+                       :sample          "sample"
+                       :cell-population "uniquePopulationName"
+                       :pret/variable   "variable"
+                       :pret/value      "value"
+                       :pret/variables  {"eventCount"                :measurement/cell-count
+                                         "normalization.measurement" :measurement/leukocyte-count
+                                         "normalized.measurement"    :measurement/percent-of-leukocytes}}]}]}]
+```
 ---
 
 ## Recent CANDEL Data Model
