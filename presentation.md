@@ -531,6 +531,31 @@ Mantis is a viewing and analysis tool for multi-channel microscopy imaging
 
 ![inline](img/oldapproach.png)
 
+^ Each dataset comes with its own pipeline, possibly attached to a vendor's platform, and a data storage for data of that type.
+^ Sometimes just in the vendor cloud, but you can export Excel files or CSVs.
+
+---
+
+![inline](img/adhoc-datastore.png)
+
+^ You start piling enough of these data type specific workflows and storages without enough coordination and it quickly balloons into
+^ something like this.
+
+---
+
+![inline](img/data-lake-warehouse.png)
+
+^ So orgs try to add some unifying data warehouse or data lake model, or some task orchestration platform to fix this mess and
+^ end up with this.
+
+---
+
+![inline](img/gene-names.png)
+
+---
+
+![inline](img/the-horror.jpeg)
+
 ---
 
 ## Example data history - with CANDEL
@@ -636,9 +661,7 @@ These were always real problems with the data! We kept them out of research!
 
 ---
 
-# Rough Edges
-
-Fault here is ours alone, not Clojure or Datomic's.
+# Things We Had to Fix
 
 ---
 
@@ -649,6 +672,13 @@ It took a long time to get acceptable solution for dataset evolution, versioning
 ---
 
 ![inline](img/CANDELsingledb.png)
+
+^ some datasets are consistently works in progress and need to be updated. Sometimes it's useful to have multiple versions
+^ up. We had ops complexity around firing up databases for dev use that were different from the canonical db, etc.
+
+---
+
+![inline](img/dashboard.png)
 
 ---
 
