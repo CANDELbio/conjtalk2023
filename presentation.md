@@ -248,12 +248,17 @@ Neither is acceptable
   - Non-trivial relations for all the above
 
 
-
 ^ A patient has tissue has cell populations that have cells have molecules
 ^ We might physically isolate particular granularities or do it with anayltical techniques, or hybrids (eg. flow gating)
 ^ We might associate anything below anywhere else in the hierarchy.
 ^ e.g., proteins or RNA or DNA just associated with the patient
 ^ All of this, clinical or moleular, is sparse
+
+
+---
+
+![inline](img/omics-integration.jpeg)
+
 ^ At this point maybe you're thinking through all the linker tables you'd have to build and nullable fields
 ^ etc. and using something with a triple store heritage like Datomic is starting to make a lot of sense.
 
