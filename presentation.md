@@ -730,8 +730,21 @@ References to entities in Datomics (as unordered set), numeric values not.
 
 Getting data at a scale that will support ML, data-driven insights from biology.
 
-- Noetik's mission
-- RCRF's mission
+--- 
+
+# Where we are now
+
+[.autoscale: true]
+
+[.column]
+
+Noetik's mission
+
+[.column]
+
+![fit inline](img/RCRF.jpg)
+
+RCRF is dedicated to curing rare cancers through strategic investments and innovative collaborations that facilitate effective research and accelerate deployment of promising therapies
 
 ---
 
